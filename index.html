@@ -16,12 +16,12 @@
 
       alert("Я загадал число от 0 до 999. Попробуйте его угадать за 5 попыток.")
 
-      count = 1;
+      let count = 1;
 
-      isFinal = false;
+      let isFinal = false;
 
       while( count <= 5){
-        userGuess = prompt(`Попытка ${count}. Введите число (q - выход)`);
+        let userGuess = prompt(`Попытка ${count}. Введите число (q - выход)`);
 
         if(userGuess === "q"){
           isFinal = true;
