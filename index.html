@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Loading, please wait...</p>
+  <script>
+    while(true){
+      let numberToGuess = Math.floor(Math.random() * 1000);
+
+      console.log("Загадано число", numberToGuess);
+
+      alert("Я загадал число от 0 до 999. Попробуйте его угадать за 5 попыток.")
+
+      count = 1;
+
+      isFinal = false;
+
+      while( count <= 5){
+        userGuess = prompt(`Попытка ${count}. Введите число (q - выход)`);
+
+        if(userGuess === "q"){
+          isFinal = true;
+          break;
+        }else if(userGuess === ""){
+          alert("Вы ничего не ввели. Попробуйте еще раз");
+          break;
+        }
+
+        userGuess = +userGuess
+
+        if( isNaN(userGuess) ){
+          alert("Вы ввели не число. Попробуйте еще раз");
+          continue;
+        }
+        else if(userGuess === numberToGuess) {
+          alert("Вы угадали!!!");
+          break;
+        } else if(userGuess < numberToGuess) {
+          alert(`Загаданное число больше ${userGuess}`);
+          count = count + 1
+        } else if(userGuess > numberToGuess) {
+          alert(`Загаданное число меньше ${userGuess}`)
+          count = count + 1;
+        }
+
+        if(count > 5){
+          alert(`Я загадал ${numberToGuess}`)
+        }
+      }
+      if(isFinal){
+        break;
+      }
+    }
+  </script>
+</body>
+</html>
